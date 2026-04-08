@@ -1,0 +1,9 @@
+# Ignorar archivos temporales y de estado de la UI
+.obsidian/workspace.json
+.obsidian/workspace
+.obsidian/cache/
+
+# Ignorar archivos del sistema
+.DS_Store
+Thumbs.db
+.trash/
