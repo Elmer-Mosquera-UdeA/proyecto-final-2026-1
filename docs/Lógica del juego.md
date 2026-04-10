@@ -1,0 +1,1 @@
+Pariendo de una lluvia de ideas ![[01-Imagen mental guia.png]]
