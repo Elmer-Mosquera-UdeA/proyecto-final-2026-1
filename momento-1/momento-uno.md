@@ -23,7 +23,7 @@ A continuación se presenta una descripción general e informal del juego, inclu
 > [!NOTE]
 > La siguiente imagen busca transmitir el concepto visual base del proyecto.
 
-![ImagenGuia](../docs/img/0-imagen-mental-guia.png)
+![ImagenGuia](../docs/img/lluvia_ideas/0-imagen-mental-guia.png)
 
 El juego se desarrolla en el planeta `Cronos`, un mundo donde las leyes físicas no funcionan exactamente igual que en la Tierra. En este entorno, el protagonista, **Chronoa Obert**, practica una versión poco convencional del golf.
 
@@ -63,8 +63,8 @@ Además, el juego incluye:
 
 > La combinación de estos elementos busca que cada nivel sea tanto un reto estratégico como una experiencia dinámica.
 
-![LLuvia de ideas](../docs/img/01-elementos-y-jugabilidad.jpeg)
+![LLuvia de ideas](../docs/img/lluvia_ideas/01-elementos-y-jugabilidad.jpeg)
 
-![LLuvia de ideas 2](../docs/img/02-regla-jugabilidad.jpeg)
+![LLuvia de ideas 2](../docs/img/lluvia_ideas/02-regla-jugabilidad.jpeg)
 
 ---
