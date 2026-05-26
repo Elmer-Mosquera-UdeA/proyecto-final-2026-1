@@ -1,11 +1,14 @@
-#include "mainwindow.h"
-
+#include "inicio/iniciowindow.h"
+#include <QIcon>
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-    MainWindow w;
+    QApplication app(argc, argv);
+
+    app.setWindowIcon(QIcon(":/resources/icons/lab.ico"));
+
+    InicioWindow w;
     w.show();
-    return a.exec();
+    return app.exec();
 }

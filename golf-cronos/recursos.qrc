@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resources/icons/lab.ico</file>
+        <file>resources/sprites/01_vidas.PNG</file>
+        <file>resources/qss/estilos.qss</file>
+    </qresource>
+</RCC>
