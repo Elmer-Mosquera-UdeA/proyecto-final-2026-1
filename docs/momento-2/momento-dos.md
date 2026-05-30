@@ -188,7 +188,7 @@ classDiagram
 %% =========================
 
 class MotorJuego {
-    +actualizar()
+    +actualizara()
     +procesarEntrada()
     +cambiarEstado()
 }
@@ -309,7 +309,7 @@ La siguiente imagen presenta una visión general de los elementos principales de
 - mecánicas gravitacionales,
 - y componentes visuales preliminares utilizados durante el desarrollo.
 
-![Concepto visual del juego](../docs/img/concepto_visual.png)
+![Concepto visual del juego](../img/concepto_visual.png)
 
 ---
 

@@ -7,3 +7,9 @@
 .DS_Store
 Thumbs.db
 .trash/
+
+# Ignorar plugins de Obsidian (se descargan desde la app)
+.obsidian/plugins/
+
+# Ignorar temas de Obsidian (se descargan desde la app)
+.obsidian/themes/

@@ -54,15 +54,14 @@ A diferencia del mini-golf tradicional, los escenarios de Cronos están diseñad
 
 ### Elementos principales de esta mecánica
 
-| Elemento | Función dentro del juego |
-| ---- | ------ |
+| Elemento                          | Función dentro del juego                                                                                      |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------- |
 | **Portales gravitacionales**      | Transportan la pelota entre diferentes zonas del mapa manteniendo o alterando su velocidad y dirección.       |
 | **Tubos de flujo**                | Generan corrientes de energía o gravedad que empujan automáticamente la pelota a través de rutas específicas. |
 | **Puntos de atracción o impulso** | Alteran la trayectoria al atraer o expulsar la pelota dependiendo de la intensidad gravitacional.             |
 | **Obstructores interactivos**     | Obstáculos que modifican el recorrido de forma estratégica y pueden utilizarse para resolver el nivel.        |
 | **Superficies especiales**        | Cambian propiedades físicas de la pelota, como rebote, velocidad o resistencia.                               |
 | **Obstáculos móviles**            | Elementos dinámicos que obligan al jugador a calcular tiempo, ritmo y precisión.                              |
-
 
 ### Habilidades especiales de la pelota
 
@@ -89,5 +88,5 @@ La experiencia del juego se centra en:
 ## Algunos sprites
 
 ![Jugador Protagonista](../docs/img/sprites/00_pesonaje_jugando.png)
-![Vidas](../docs/img/sprites/01_vidas.PNG)
+![Vidas](../../golf-cronos/resources/sprites/corazon-intentos.PNG)
 ![Tipografia](../docs/img/sprites/02_tipografia.png)

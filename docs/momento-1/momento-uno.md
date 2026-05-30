@@ -63,8 +63,8 @@ Además, el juego incluye:
 
 > La combinación de estos elementos busca que cada nivel sea tanto un reto estratégico como una experiencia dinámica.
 
-![LLuvia de ideas](../docs/img/lluvia_ideas/01-elementos-y-jugabilidad.jpeg)
+![LLuvia de ideas](../img/lluvia_ideas/01-elementos-y-jugabilidad.jpeg)
 
-![LLuvia de ideas 2](../docs/img/lluvia_ideas/02-regla-jugabilidad.jpeg)
+![LLuvia de ideas 2](../img/lluvia_ideas/02-regla-jugabilidad.jpeg)
 
 ---
