@@ -1,4 +1,4 @@
-# Momento 2: Especificaciones del juego y recursos audio visuales
+# ![[Pasted image 20260531020127.png]]Momento 2: Especificaciones del juego y recursos audio visuales
 
 ## Contexto
 
@@ -111,6 +111,11 @@ flowchart TD
 ```
 
 ---
+
+Modos de Juego y NivelesNivel 1: PlataformeroVista: Fija con scroll lateral.Concepto: Chronoa se mantiene flotando sobre islas fragmentadas en el espacio. El mapa muestra secciones que se superan con transiciones laterales a medida que se logran los emboques.Físicas principales: * Movimiento parabólico.Oscilador armónico simple (plataformas móviles).Alteración del coeficiente de restitución.Nivel 2: El Laberinto TemporalVista: Cenital (top-down, vista desde arriba).Concepto: Un intrincado laberinto en la superficie de Cronos. El núcleo del planeta pulsa e interfiere constantemente con la gravedad.Físicas aplicadas: * Fuerza Oscilatoria: El núcleo emite pulsos periódicos de gravedad ($F = A\cdot\sin(\omega t + \phi)$) que empujan la pelota rítmicamente hacia los lados.Fricción Dinámica: El suelo presenta zonas de roca normal, hielo crónico (altamente deslizante) y lava solidificada (frenado inmediato).Condición de derrota: Temporizador activo ("Colapso en 45 segundos") con reinicio y penalización.Interacción del Agente IA: Controla dinámicamente grietas temporales para bloquear rutas mediante ciclos de Percepción, Razonamiento, Acción y Aprendizaje.Rasgos de Chronoa en este nivel:isPesada: Mayor inercia para resistir anomalías gravitacionales.isCrononauta: Congela el temporizador y al Agente IA por 5 segundos.
+
+<img width="928" height="487" alt="image" src="https://github.com/user-attachments/assets/67f989de-fb23-468c-be81-d346d40c2cc7" />
+
 
 # Identificación de entidades
 

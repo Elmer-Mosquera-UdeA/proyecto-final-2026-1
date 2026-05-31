@@ -37,4 +37,30 @@ El objetivo es aprovechar las propiedades del mapa para eludir obstáculos y  em
 
 3. **Alteración del Coeficiente de Restitución:** Algunas superficies fueron afectadas por experimentos temporales y presentan comportamientos inusuales al impactar la pelota, provocando rebotes más fuertes o más débiles de lo esperado.
 
+**CRONO GOLF** NIVEL 2
+
+El personaje principal Chronoa se adentra ahora en la superficie inestable de Cronos, donde el tiempo corre en su contra y el entorno es controlado dinámicamente por un Agente IA. La tecnología temporal de sus habilidades será vital para evitar que el campo colapse antes de cumplir su objetivo.
+
+![[Pasted image 20260531031117.png]]
+
+**Modos de Juegos**
+
+**2. Laberinto Temporal con vista cenital (top-down)**
+
+El mapa es un intrincado laberinto en la superficie del planeta, mostrando el escenario completamente desde arriba (distinto al scroll lateral). En este modo, el núcleo del planeta actúa como el centro del nivel, pulsando e interfiriendo constantemente con la gravedad.
+
+El objetivo es aprovechar las propiedades del mapa y las habilidades de Chronoa para eludir las grietas temporales del Agente IA y embocar la pelota antes de que el temporizador (45 segundos) provoque el colapso del nivel. Los elementos dinámicos hacen de este juego uno basado en la reacción rápida y la planificación espacial.
+
+- Lanzar la pelota calculando el empuje rítmico del escenario y sorteando los bloqueos.
+    
+- Aprovechar las habilidades especiales del nivel: `isPesada` (mayor inercia para resistir las anomalías) e `isCrononauta` (detener el reloj y congelar al Agente IA por 5 segundos).
+    
+- Usar elementos de jugabilidad para determinar la trayectoria de la pelota aprovechando la nueva vista cenital, la física oscilatoria y los drásticos cambios de fricción en el suelo.
+    
+
+**Físicas**
+
+- **Fuerza Oscilatoria:** El núcleo del planeta emite pulsos periódicos de gravedad ($F = A\cdot\sin(\omega t + \phi)$). Esta física empuja rítmicamente la pelota hacia los lados mientras rueda, obligando a calcular el momento exacto del golpe.
+    
+- **Fricción Dinámica:** El suelo está afectado por anomalías y presenta zonas de distintos materiales que alteran bruscamente el desplazamiento: roca normal, hielo crónico (superficies altamente deslizantes) y lava solidificada (frenado inmediato).
 ### Diagrama de clases

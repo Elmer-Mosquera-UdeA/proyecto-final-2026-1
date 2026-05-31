@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/img/Escudo-UdeA.svg" width="150">
+  <img src="img/Escudo-UdeA.svg" width="150">
 </p>
 
 # Golf en el universo del planeta Cronos
