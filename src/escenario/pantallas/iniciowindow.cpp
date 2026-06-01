@@ -2,7 +2,12 @@
 #include "ui_iniciowindow.h"
 #include "../../cerebro/gestorbasedatos.h"
 
-#include <QMessageBox>
+
+// Widgets
+#include "../widgets/loginwidget.h"
+#include "../widgets/registrarsewidget.h"
+#include "../widgets/portadawidget.h"
+#include "../widgets/juegomodunowidget.h"
 
 InicioWindow::InicioWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -10,44 +15,39 @@ InicioWindow::InicioWindow(QWidget *parent)
 {
     ui->setupUi(this);
     setWindowTitle("Golf En El Paneta Cronos");
-    connect(ui->bIniciarSecion,&QPushButton::clicked,this,&InicioWindow::inicarSecion);
+
+
+    // Widgets
+
+    // Se crean
+    PortadaWidget *pantallaPortada = new PortadaWidget(this);
+    LoginWidget *pantallaLogin = new LoginWidget(this);
+    RegistrarseWidget *pantallaRegistrarse = new RegistrarseWidget(this);
+    JuegoModUnoWidget *pantallaJuegoModUno = new JuegoModUnoWidget(this);
+
+    // Se agregan
+    ui->stackedWidget->addWidget(pantallaPortada); // 0
+    ui->stackedWidget->addWidget(pantallaLogin);  // 1
+    ui->stackedWidget->addWidget(pantallaRegistrarse); // 2
+    ui->stackedWidget->addWidget(pantallaJuegoModUno); // 3
+
+    // Mostramos
+    ui->stackedWidget->setCurrentIndex(2);
+
+    // Conectado signals con comportamientos
+
+    connect(pantallaLogin, &LoginWidget::loginExitoso, this, [this]() {
+        ui->stackedWidget->setCurrentIndex(2);
+    });
+
+
+    connect(pantallaRegistrarse,&RegistrarseWidget::volverAtras,this,[this](){
+        // Comportamientos aqui
+        ui->stackedWidget->setCurrentIndex(0);
+    });
 }
 
 InicioWindow::~InicioWindow()
 {
     delete ui;
-}
-
-
-void InicioWindow::inicarSecion()
-{
-    // Usamos trimmed() para eliminar espacios accidentales al inicio o al final
-    QString usuario = ui->entradaUsuario->text().trimmed();
-    QString pin = ui->entradaPin->text().trimmed();
-
-    // 1. Validación de seguridad en la interfaz (Frontend)
-    if (usuario.isEmpty() || pin.isEmpty()) {
-        QMessageBox::warning(this, "Campos Incompletos", "Por favor, introduce tu Identificador y PIN de Cronos.");
-        return;
-    }
-
-    // 2. Instanciamos el gestor para interactuar con SQLite (Backend)
-    GestorBaseDatos gestorDB;
-
-    // 3. Validamos las credenciales contra la base de datos
-    if (gestorDB.validarAcceso(usuario, pin)) {
-        QMessageBox::information(this, "Bienvenido", "¡Acceso concedido, " + usuario + "! Preparando el nivel...");
-
-        // --- AQUÍ VA LA LÓGICA PARA CAMBIAR DE PANTALLA ---
-        // Ejemplo:
-        // VentanaJuego *juego = new VentanaJuego(usuario, this);
-        // juego->show();
-        // this->hide(); // Ocultamos la ventana de inicio
-
-    } else {
-        // Si el usuario no existe o el PIN está mal
-        QMessageBox::critical(this, "Error de Acceso", "Identificador o PIN incorrectos. Inténtalo de nuevo.");
-        ui->entradaPin->clear(); // Limpiamos el PIN para que lo vuelva a intentar
-        ui->entradaPin->setFocus(); // Ponemos el cursor de vuelta en la caja del PIN
-    }
 }

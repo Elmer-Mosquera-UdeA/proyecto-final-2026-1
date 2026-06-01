@@ -1,0 +1,3 @@
+#LoginWidget {
+    border-image: url(:/resources/imgs/fondo_inicio.png);
+}

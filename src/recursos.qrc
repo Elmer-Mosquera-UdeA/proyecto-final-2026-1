@@ -3,5 +3,10 @@
         <file>resources/icons/lab.ico</file>
         <file>resources/qss/estilos.qss</file>
         <file>resources/sprites/corazon-intentos.PNG</file>
+        <file>resources/imgs/logo-lema.png</file>
+        <file>resources/imgs/fondo_inicio.png</file>
+        <file>resources/imgs/game-over.png</file>
+        <file>resources/imgs/mini-mod-1.png</file>
+        <file>resources/imgs/ejemplo simple.png</file>
     </qresource>
 </RCC>

@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 
+
 namespace Ui {
 class InicioWindow;
 }
@@ -14,9 +15,6 @@ class InicioWindow : public QMainWindow
 public:
     explicit InicioWindow(QWidget *parent = nullptr);
     ~InicioWindow();
-
-    // Metodos personalizados
-    void inicarSecion();
 
 private:
     Ui::InicioWindow *ui;
