@@ -8,6 +8,7 @@
 #include "../widgets/registrarsewidget.h"
 #include "../widgets/portadawidget.h"
 #include "../widgets/juegomodunowidget.h"
+#include "../widgets/juegomoddoswidget.h"
 
 InicioWindow::InicioWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -24,12 +25,14 @@ InicioWindow::InicioWindow(QWidget *parent)
     LoginWidget *pantallaLogin = new LoginWidget(this);
     RegistrarseWidget *pantallaRegistrarse = new RegistrarseWidget(this);
     JuegoModUnoWidget *pantallaJuegoModUno = new JuegoModUnoWidget(this);
+    JuegoModDosWidget *pantallaJuegoModDos = new JuegoModDosWidget(this);
 
     // Se agregan
     ui->stackedWidget->addWidget(pantallaPortada); // 0
     ui->stackedWidget->addWidget(pantallaLogin);  // 1
     ui->stackedWidget->addWidget(pantallaRegistrarse); // 2
     ui->stackedWidget->addWidget(pantallaJuegoModUno); // 3
+    ui->stackedWidget->addWidget(pantallaJuegoModDos); // 4
 
     // Mostramos
     ui->stackedWidget->setCurrentIndex(2);
@@ -43,6 +46,10 @@ InicioWindow::InicioWindow(QWidget *parent)
 
     connect(pantallaRegistrarse,&RegistrarseWidget::volverAtras,this,[this](){
         // Comportamientos aqui
+        ui->stackedWidget->setCurrentIndex(0);
+    });
+
+    connect(pantallaJuegoModDos, &JuegoModDosWidget::volverAtras, this, [this]() {
         ui->stackedWidget->setCurrentIndex(0);
     });
 }
