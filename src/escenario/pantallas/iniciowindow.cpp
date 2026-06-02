@@ -4,9 +4,10 @@
 
 
 // Widgets
+#include "../widgets/portadawidget.h"
+#include "../widgets/modosgamewidget.h"
 #include "../widgets/loginwidget.h"
 #include "../widgets/registrarsewidget.h"
-#include "../widgets/portadawidget.h"
 #include "../widgets/juegomodunowidget.h"
 
 InicioWindow::InicioWindow(QWidget *parent)
@@ -17,32 +18,52 @@ InicioWindow::InicioWindow(QWidget *parent)
     setWindowTitle("Golf En El Paneta Cronos");
 
 
+
     // Widgets
 
     // Se crean
     PortadaWidget *pantallaPortada = new PortadaWidget(this);
     LoginWidget *pantallaLogin = new LoginWidget(this);
     RegistrarseWidget *pantallaRegistrarse = new RegistrarseWidget(this);
+    ModosGameWidget *pantallaModosJuego = new ModosGameWidget(this);
     JuegoModUnoWidget *pantallaJuegoModUno = new JuegoModUnoWidget(this);
 
-    // Se agregan
     ui->stackedWidget->addWidget(pantallaPortada); // 0
     ui->stackedWidget->addWidget(pantallaLogin);  // 1
     ui->stackedWidget->addWidget(pantallaRegistrarse); // 2
-    ui->stackedWidget->addWidget(pantallaJuegoModUno); // 3
+    ui->stackedWidget->addWidget(pantallaModosJuego); // 3
+
+
+    ui->stackedWidget->addWidget(pantallaJuegoModUno); // -- TODO: Cambiar a carga peresoza
 
     // Mostramos
-    ui->stackedWidget->setCurrentIndex(2);
+    ui->stackedWidget->setCurrentIndex(0);
 
-    // Conectado signals con comportamientos
+    connect(pantallaPortada, &PortadaWidget::usuarioOld, this, [this]() {
+        ui->stackedWidget->setCurrentIndex(1);
+    });
 
-    connect(pantallaLogin, &LoginWidget::loginExitoso, this, [this]() {
+    connect(pantallaPortada, &PortadaWidget::usuarioNew, this, [this]() {
         ui->stackedWidget->setCurrentIndex(2);
     });
 
+    connect(pantallaLogin, &LoginWidget::volverAtras, this, [this]() {
+        ui->stackedWidget->setCurrentIndex(0);
+    });
+
+    connect(pantallaLogin, &LoginWidget::loginExitoso, this, [this]() {
+        ui->stackedWidget->setCurrentIndex(3);
+    });
 
     connect(pantallaRegistrarse,&RegistrarseWidget::volverAtras,this,[this](){
-        // Comportamientos aqui
+        ui->stackedWidget->setCurrentIndex(0);
+    });
+
+    connect(pantallaRegistrarse,&RegistrarseWidget::registroExitoso,this,[this](){
+        ui->stackedWidget->setCurrentIndex(3);
+    });
+
+    connect(pantallaModosJuego,&ModosGameWidget::sesionCerrada,this,[this](){
         ui->stackedWidget->setCurrentIndex(0);
     });
 }

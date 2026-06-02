@@ -1,3 +1,12 @@
 #LoginWidget {
-    border-image: url(:/resources/imgs/fondo_inicio.png);
+    border-image: url(:/resources/imgs/fondo_inicio.png)  0 0 0 0 stretch stretch;
 }
+
+#RegistrarseWidget {
+    border-image: url(:/resources/imgs/fondo_inicio.png)  0 0 0 0 stretch stretch;
+}
+
+#PortadaWidget {
+    border-image: url(:/resources/imgs/fondo_inicio.png)  0 0 0 0 stretch stretch;
+}
+

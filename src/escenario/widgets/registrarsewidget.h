@@ -20,9 +20,10 @@ private:
 
 signals:
     void volverAtras();
-
+    void registroExitoso();
 
 private slots:
+    void on_btnRegistrarse_clicked();
     void on_btnVolver_clicked();
 };
 

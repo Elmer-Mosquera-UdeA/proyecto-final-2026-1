@@ -16,9 +16,11 @@ public:
     ~LoginWidget();
 
 signals:
+    void volverAtras();
     void loginExitoso();
 
 private slots:
+    void on_btnVolver_clicked();
     void on_btnIngresar_clicked();
 
 private:

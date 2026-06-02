@@ -7,6 +7,6 @@
         <file>resources/imgs/fondo_inicio.png</file>
         <file>resources/imgs/game-over.png</file>
         <file>resources/imgs/mini-mod-1.png</file>
-        <file>resources/imgs/ejemplo simple.png</file>
+        <file>resources/imgs/fondo_oscuro.png</file>
     </qresource>
 </RCC>

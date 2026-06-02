@@ -17,6 +17,12 @@ public:
 
 private:
     Ui::ModosGameWidget *ui;
+
+signals:
+    void sesionCerrada();
+
+private slots:
+    void on_btn_exitAth_clicked();
 };
 
 #endif // MODOSGAMEWIDGET_H

@@ -12,3 +12,13 @@ PortadaWidget::~PortadaWidget()
 {
     delete ui;
 }
+
+void PortadaWidget::on_btn_toLogin_clicked()
+{
+    emit usuarioOld();
+}
+
+void PortadaWidget::on_btn_toRegistrarse_clicked()
+{
+    emit usuarioNew();
+}

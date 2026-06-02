@@ -17,6 +17,14 @@ public:
 
 private:
     Ui::PortadaWidget *ui;
+
+signals:
+    void usuarioOld();
+    void usuarioNew();
+
+private slots:
+    void on_btn_toLogin_clicked();
+    void on_btn_toRegistrarse_clicked();
 };
 
 #endif // PORTADAWIDGET_H
