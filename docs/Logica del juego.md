@@ -2,6 +2,14 @@
 
 Respondamos al las preguntas que van de la mano con las entidades que intervienen en el juego, que propiedades intrínsecas tienes.
 ## Entidades
+
+### ElementoJuego
+
+Esta clase es de la que parten todos los elementos de jugabilidad contiene las propiedades en comun de todos los elementos.
+
+Debido a que algunos elementos poseen un área de colisión irregular se mantiene **bounding Box** para una detección preliminar rápida, hay que recalcar que aprovecharemos los elementos propios de **framework QT** para gestionar las colisiones y no diseñaremos un sistema de colisiones basado en estados. La documentación del del proyecto recibirá actualizaciones frecuentes recurrentes que pueden verse en  **formalizacion**. Además, se formaliza un diagrama de clases  que no esta enfocado en el motor físico sino en las entidades propias del juego.
+
+Mas detalle en [Documentacion Formalizada](formalizacion/index)
 ### Pelota
 
 - Representa el objeto principal del juego que debe llegar al hoyo.

@@ -1,4 +1,4 @@
-# ![[Pasted image 20260531020127.png]]Momento 2: Especificaciones del juego y recursos audio visuales
+# Momento 2: Especificaciones del juego y recursos audio visuales
 
 ## Contexto
 
