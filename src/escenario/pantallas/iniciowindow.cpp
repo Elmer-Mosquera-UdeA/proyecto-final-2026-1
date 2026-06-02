@@ -1,6 +1,6 @@
 #include "iniciowindow.h"
 #include "ui_iniciowindow.h"
-#include "../../cerebro/gestorbasedatos.h"
+// #include "../../cerebro/gestorbasedatos.h"
 
 
 // Widgets
@@ -8,7 +8,7 @@
 #include "../widgets/modosgamewidget.h"
 #include "../widgets/loginwidget.h"
 #include "../widgets/registrarsewidget.h"
-#include "../widgets/juegomodunowidget.h"
+#include "../modos_juego//juegomodounowidget.h"
 
 InicioWindow::InicioWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -69,7 +69,7 @@ InicioWindow::InicioWindow(QWidget *parent)
 
     connect(pantallaModosJuego,&ModosGameWidget::jugarModUno,this,[this]() {
         // 1. Crear el objeto bajo demanda
-        JuegoModUnoWidget *pantallaJuegoModUno = new JuegoModUnoWidget(this);
+        JuegoModoUnoWidget *pantallaJuegoModUno = new JuegoModoUnoWidget(this);
 
         // Indicar a Qt que libere la memoria RAM cuando el objeto se cierre o destruya
         pantallaJuegoModUno->setAttribute(Qt::WA_DeleteOnClose);

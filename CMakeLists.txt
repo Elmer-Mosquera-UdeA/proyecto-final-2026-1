@@ -17,7 +17,8 @@ qt_add_executable(golf-cronos
     src/escenario/widgets/registrarsewidget.h src/escenario/widgets/registrarsewidget.cpp src/escenario/widgets/registrarsewidget.ui
     src/escenario/widgets/modosgamewidget.h src/escenario/widgets/modosgamewidget.cpp src/escenario/widgets/modosgamewidget.ui
     src/escenario/widgets/portadawidget.h src/escenario/widgets/portadawidget.cpp src/escenario/widgets/portadawidget.ui
-    src/escenario/widgets/juegomodunowidget.h src/escenario/widgets/juegomodunowidget.cpp src/escenario/widgets/juegomodunowidget.ui
+
+    src/escenario/modos_juego/juegomodounowidget.h src/escenario/modos_juego/juegomodounowidget.cpp
 )
 
 target_link_libraries(golf-cronos
