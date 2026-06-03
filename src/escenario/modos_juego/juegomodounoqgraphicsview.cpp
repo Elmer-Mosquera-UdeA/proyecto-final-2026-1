@@ -20,9 +20,8 @@ JuegoModoUnoQGraphicsView::JuegoModoUnoQGraphicsView(QWidget *parent) : QGraphic
     inicializarNivel();
 }
 
-JuegoModoUnoQGraphicsView::~JuegoModoUnoQGraphicsView()
-{
-}
+// Destructor
+JuegoModoUnoQGraphicsView::~JuegoModoUnoQGraphicsView(){}
 
 void JuegoModoUnoQGraphicsView::inicializarNivel()
 {
@@ -33,7 +32,6 @@ void JuegoModoUnoQGraphicsView::inicializarNivel()
         fondoEscalado = imagenFondo.scaled(1366, 768, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
     }
 
-    // 2. Control de lógica por nivel
     if (nivelActual == 1) {
         // crearNivel1();
     } else if (nivelActual == 2) {

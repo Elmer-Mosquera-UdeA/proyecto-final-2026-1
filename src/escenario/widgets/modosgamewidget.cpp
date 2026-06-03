@@ -31,3 +31,8 @@ void ModosGameWidget::on_btn_exitAth_clicked()
 void ModosGameWidget::on_btn_modoU_clicked() {
     emit jugarModUno();
 }
+
+void ModosGameWidget::on_btn_modoD_clicked()
+{
+    emit jugarModoDos();
+}

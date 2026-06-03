@@ -20,11 +20,13 @@ private:
 
 signals:
     void jugarModUno();
+    void jugarModoDos();
     void sesionCerrada();
 
 private slots:
     void on_btn_exitAth_clicked();
     void on_btn_modoU_clicked();
+    void on_btn_modoD_clicked();
 };
 
 #endif // MODOSGAMEWIDGET_H

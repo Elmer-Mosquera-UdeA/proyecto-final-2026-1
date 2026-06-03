@@ -8,7 +8,9 @@
 #include "../widgets/modosgamewidget.h"
 #include "../widgets/loginwidget.h"
 #include "../widgets/registrarsewidget.h"
+
 #include "../modos_juego//juegomodounoqgraphicsview.h"
+#include "../modos_juego//juegomododosqgraphicsview.h"
 
 InicioWindow::InicioWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -81,6 +83,24 @@ InicioWindow::InicioWindow(QWidget *parent)
             ui->stackedWidget->setCurrentIndex(3); // Regresa a ModosGameWidget
             ui->stackedWidget->removeWidget(pantallaJuegoModUno); // Lo saca del stack
             pantallaJuegoModUno->deleteLater(); // Borra la memoria de forma segura en Qt
+        });
+        */
+    });
+
+    connect(pantallaModosJuego, &ModosGameWidget::jugarModoDos, this, [this]() {
+        // 1. Crear el objeto pasándole el stackedWidget como contenedor padre directo
+        JuegoModoDosQGraphicsView *pantallaJuegoModDos = new JuegoModoDosQGraphicsView(ui->stackedWidget);
+
+        // 2. Añadirlo al stackedWidget
+        ui->stackedWidget->addWidget(pantallaJuegoModDos);
+        ui->stackedWidget->setCurrentWidget(pantallaJuegoModDos);
+
+        // Opcional: Si necesitas regresar al menú y borrar el juego para liberar memoria:
+        /*
+        connect(pantallaJuegoModDos, &JuegoModoDosQGraphicsView::volverAlMenu, this, [this, pantallaJuegoModDos]() {
+            ui->stackedWidget->setCurrentIndex(3); // Regresa a ModosGameWidget
+            ui->stackedWidget->removeWidget(pantallaJuegoModDos); // Lo saca del stack
+            pantallaJuegoModDos->deleteLater(); // Borra la memoria de forma segura en Qt
         });
         */
     });

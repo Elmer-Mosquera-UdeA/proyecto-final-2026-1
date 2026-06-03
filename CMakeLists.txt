@@ -24,8 +24,9 @@ qt_add_executable(golf-cronos
     src/escenario/widgets/modosgamewidget.h src/escenario/widgets/modosgamewidget.cpp src/escenario/widgets/modosgamewidget.ui
     src/escenario/widgets/portadawidget.h src/escenario/widgets/portadawidget.cpp src/escenario/widgets/portadawidget.ui
 
-        src/escenario/modos_juego/juegomodounoqgraphicsview.h src/escenario/modos_juego/juegomodounoqgraphicsview.cpp
+    src/escenario/modos_juego/juegomodounoqgraphicsview.h src/escenario/modos_juego/juegomodounoqgraphicsview.cpp
     src/cerebro/elementojuego.h src/cerebro/elementojuego.cpp
+    src/escenario/modos_juego/juegomododosqgraphicsview.h src/escenario/modos_juego/juegomododosqgraphicsview.cpp
 )
 
 target_link_libraries(golf-cronos
