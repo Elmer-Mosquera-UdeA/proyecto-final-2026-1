@@ -9,5 +9,7 @@
         <file>resources/imgs/mini-mod-1.png</file>
         <file>resources/imgs/fondo_oscuro.png</file>
         <file>resources/imgs/fondo_juego_m_u.png</file>
+        <file>resources/imgs/pelota-golf.png</file>
+        <file>resources/imgs/pendulo.png</file>
     </qresource>
 </RCC>

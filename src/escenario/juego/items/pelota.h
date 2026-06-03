@@ -5,7 +5,6 @@
 
 class Pelota : public QGraphicsPixmapItem
 {
-    Q_OBJECT
 public:
     Pelota();
 };
