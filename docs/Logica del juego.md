@@ -42,6 +42,7 @@ Respondamos al las preguntas que van de la mano con las entidades que interviene
 
 
 
+
 ### Creación de base de datos
 
 El análisis e identificación de los datos que actúan sobre el juego, datos que pueden guardarse para que la información.

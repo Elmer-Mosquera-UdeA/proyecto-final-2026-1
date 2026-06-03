@@ -8,5 +8,6 @@
         <file>resources/imgs/game-over.png</file>
         <file>resources/imgs/mini-mod-1.png</file>
         <file>resources/imgs/fondo_oscuro.png</file>
+        <file>resources/imgs/fondo_juego_m_u.png</file>
     </qresource>
 </RCC>

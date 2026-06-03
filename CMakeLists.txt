@@ -7,6 +7,12 @@ set(CMAKE_AUTORCC ON)
 
 qt_standard_project_setup()
 
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    set(CONSOLE_FLAG "")
+else()
+    set(CONSOLE_FLAG "WIN32;MACOSX_BUNDLE")
+endif()
+
 qt_add_executable(golf-cronos
     WIN32 MACOSX_BUNDLE
     src/main.cpp
@@ -18,7 +24,8 @@ qt_add_executable(golf-cronos
     src/escenario/widgets/modosgamewidget.h src/escenario/widgets/modosgamewidget.cpp src/escenario/widgets/modosgamewidget.ui
     src/escenario/widgets/portadawidget.h src/escenario/widgets/portadawidget.cpp src/escenario/widgets/portadawidget.ui
 
-    src/escenario/modos_juego/juegomodounowidget.h src/escenario/modos_juego/juegomodounowidget.cpp
+        src/escenario/modos_juego/juegomodounoqgraphicsview.h src/escenario/modos_juego/juegomodounoqgraphicsview.cpp
+    src/cerebro/elementojuego.h src/cerebro/elementojuego.cpp
 )
 
 target_link_libraries(golf-cronos
