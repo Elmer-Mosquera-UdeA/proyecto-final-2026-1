@@ -7,12 +7,13 @@
 
 // Procesamiento datos
 #include <QtMath>
-
-// Durante desarrollo para pruebas
-#include <QMessageBox>
+#include <QDebug>
+#include <QGraphicsEllipseItem>
+#include <QGraphicsTextItem>
+#include <QGraphicsScene>
 
 Nivel::Nivel(QObject *parent)
-    : QGraphicsScene(parent)
+    : QGraphicsScene(parent), pelota(nullptr), hoyo(nullptr)
 {
     setSceneRect(0, 0, 1366, 768);
 
@@ -24,63 +25,99 @@ Nivel::Nivel(QObject *parent)
     timerPrincipal = new QTimer(this);
     connect(timerPrincipal, &QTimer::timeout, this, &Nivel::actualizarJuego);
 
-    timerPrincipal->start(16);
+    timerPrincipal->start(16);  // ~60 FPS
 }
 
 Nivel::~Nivel()
 {
+    // Qt gestiona la memoria automáticamente
 }
 
-// Implementación obligatoria para que se pinte el fondoEscalado en la escena
+void Nivel::limpiarNivel()
+{
+    clear();
+    pelota = nullptr;
+    hoyo = nullptr;
+    obstaculos.clear();
+    portales.clear();
+}
+
+void Nivel::cargarNivel1()
+{
+    limpiarNivel();
+
+    // Crear pelota
+    pelota = new Pelota();
+    pelota->setPosition(683, 600);  // Centro inferior de la escena
+    addItem(pelota);
+
+    // Debug: marcar posición inicial
+    marcarPosicion(this, 683, 600, "Pelota Inicial");
+
+    qDebug() << "[Nivel] Nivel 1 cargado - Pelota creada en (683, 600)";
+}
+
+void Nivel::aplicarFuerzaTiro(const QPointF &origen, const QPointF &vector)
+{
+    if (!pelota) return;
+
+    // Calcular parámetros del tiro
+    double magnitud = qSqrt(vector.x() * vector.x() + vector.y() * vector.y());
+    double anguloRadianes = qAtan2(vector.y(), vector.x());
+    double anguloGrados = qRadiansToDegrees(anguloRadianes);
+
+    qDebug() << QString("[Tiro] Origen: (%1, %2) | Vector: (%3, %4) | Magnitud: %5 | Ángulo: %6°")
+                    .arg(origen.x(), 0, 'f', 1)
+                    .arg(origen.y(), 0, 'f', 1)
+                    .arg(vector.x(), 0, 'f', 1)
+                    .arg(vector.y(), 0, 'f', 1)
+                    .arg(magnitud, 0, 'f', 1)
+                    .arg(anguloGrados, 0, 'f', 1);
+
+    // Aplicar velocidad a la pelota
+    pelota->setVelocidad(vector.x(), vector.y());
+}
+
+void Nivel::actualizarJuego()
+{
+    // Actualizar física de la pelota
+    if (pelota) {
+        pelota->actualizarFisica(0.016);  // deltaTime de ~60 FPS
+    }
+}
+
 void Nivel::drawBackground(QPainter *painter, const QRectF &rect)
 {
     Q_UNUSED(rect);
     if (!fondoEscalado.isNull()) {
         painter->drawPixmap(0, 0, fondoEscalado);
     } else {
-        // Fondo gris por defecto si la ruta de la imagen falla
         painter->fillRect(sceneRect(), Qt::gray);
     }
 }
 
-void Nivel::aplicarFuerzaTiro(const QPointF &origen, const QPointF &vector)
+void Nivel::marcarPosicion(QGraphicsScene* escena, double x, double y, const QString& etiqueta)
 {
-    // El Nivel toma el control total del vector recibido
-    double magnitud = qSqrt(vector.x() * vector.x() + vector.y() * vector.y());
-    double anguloRadianes = qAtan2(vector.y(), vector.x());
-    double anguloGrados = qRadiansToDegrees(anguloRadianes);
+    if (!escena) return;
 
-    // Construimos el mensaje que se mostrará en el contexto del juego
-    QString mensaje = QString(
-                          "<h3>[Mensaje desde el OBJETO NIVEL]</h3>"
-                          "<b>¡Vector Libre recibido con éxito!</b><br><br>"
-                          "<b>Punto Origen en Escena:</b> (%1, %2)<br><br>"
-                          "<b>Fuerza en X (Horizontal):</b> %3<br>"
-                          "<b>Fuerza en Y (Vertical):</b> %4<br><br>"
-                          "<b>Magnitud del Tiro:</b> %5 unidades<br>"
-                          "<b>Ángulo de Inclinación:</b> %6°"
-                          )
-                          .arg(origen.x(), 0, 'f', 1)
-                          .arg(origen.y(), 0, 'f', 1)
-                          .arg(vector.x(), 0, 'f', 1)
-                          .arg(vector.y(), 0, 'f', 1)
-                          .arg(magnitud, 0, 'f', 1)
-                          .arg(anguloGrados, 0, 'f', 1);
+    // Crear círculo marcador
+    QGraphicsEllipseItem* circulo = escena->addEllipse(
+        x - 5, y - 5, 10, 10,
+        QPen(QColor(255, 0, 0), 2),
+        QBrush(QColor(255, 0, 0))
+        );
+    circulo->setZValue(1000);
 
-    // Mostramos la ventana utilizando los widgets del sistema pasándole nullptr o la vista activa
-    QMessageBox::information(nullptr, "Lógica del Nivel Activa", mensaje);
+    // Crear etiqueta
+    if (!etiqueta.isEmpty()) {
+        QGraphicsTextItem* texto = escena->addText(etiqueta);
+        texto->setPos(x + 10, y - 5);
+        texto->setDefaultTextColor(QColor(255, 0, 0));
+        QFont fuente;
+        fuente.setPointSize(8);
+        texto->setFont(fuente);
+        texto->setZValue(1001);
+    }
 
-    // --- TODO
-    // El personaje laza la peltota ---
-
-
-    // Los meotodos estaran desacomplados en principio para reducir el area de test y depuracion
-    // pelota->reaccionTiro(vector.x(), vector.y());
-
-
-}
-
-void Nivel::actualizarJuego()
-{
-    // Lógica física de tu juego en cada tick del QTimer
+    qDebug() << QString("[Marcador] (%1, %2) - %3").arg(x).arg(y).arg(etiqueta);
 }

@@ -31,7 +31,7 @@ private:
     double radio;
 
     // Parámetros de física
-    double gravedad;           // Pixels/s² (caída)
+    double gravedad;           // Pixels/s^2 (caída)
     double friccion;           // Factor 0-1 (ralentización)
     double velocidadMinima;    // Threshold para "detener"
 };

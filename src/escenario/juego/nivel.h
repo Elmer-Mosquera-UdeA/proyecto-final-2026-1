@@ -22,6 +22,9 @@ public:
     void limpiarNivel();
     void cargarNivel1();
 
+    // Función de debug para marcar posiciones
+    static void marcarPosicion(QGraphicsScene* escena, double x, double y, const QString& etiqueta = "");
+
 public slots:
     void aplicarFuerzaTiro(const QPointF &origen, const QPointF &vector);
 
@@ -44,4 +47,4 @@ private slots:
     void actualizarJuego();
 };
 
-#endif
+#endif // NIVEL_H
