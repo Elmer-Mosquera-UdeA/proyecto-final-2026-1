@@ -1,3 +1,6 @@
+
+
+
 ```mermaid
 classDiagram
   direction TB
@@ -120,3 +123,4 @@ classDiagram
   Obstaculo <|-- Grieta
   Obstaculo <|-- ZonaEfecto
 ```
+

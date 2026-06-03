@@ -27,6 +27,8 @@ qt_add_executable(golf-cronos
     src/escenario/modos_juego/juegomodounoqgraphicsview.h src/escenario/modos_juego/juegomodounoqgraphicsview.cpp
     src/cerebro/elementojuego.h src/cerebro/elementojuego.cpp
     src/escenario/modos_juego/juegomododosqgraphicsview.h src/escenario/modos_juego/juegomododosqgraphicsview.cpp
+    src/escenario/juego/nivel.h src/escenario/juego/nivel.cpp
+    src/escenario/juego/items/pelota.h src/escenario/juego/items/pelota.cpp
 )
 
 target_link_libraries(golf-cronos
